@@ -1,0 +1,46 @@
+
+<div *ngIf="email">
+    <h2><span>Email</span> {{email.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>From</span></dt>
+        <dd>
+            <span>{{email.from}}</span>
+        </dd>
+        <dt><span>To</span></dt>
+        <dd>
+            <span>{{email.to}}</span>
+        </dd>
+        <dt><span>Reply To</span></dt>
+        <dd>
+            <span>{{email.replyTo}}</span>
+        </dd>
+        <dt><span>Date Sent</span></dt>
+        <dd>
+            <span>{{email.dateSent | date:'medium'}}</span>
+        </dd>
+        <dt><span>Type</span></dt>
+        <dd>
+            <span>{{email.type}}</span>
+        </dd>
+        <dt><span>Subject</span></dt>
+        <dd>
+            <span>{{email.subject}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'email/'+ email.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

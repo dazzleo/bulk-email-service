@@ -1,0 +1,12 @@
+enum Type {
+	HTML, TEXT
+}
+
+entity  Email {
+	from String,
+    to String,
+    replyTo String,
+    dateSent Instant,
+	type Type,
+    subject String,
+}
